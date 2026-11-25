@@ -304,7 +304,7 @@
               <p class="tiny" style="color:#d9cba6;line-height:1.7">
                 본 사이트는 <b style="color:var(--gold)">비공식 팬 사이트</b>이며, 템빨: 오버기어드의 상표 및 저작권은 원저작권자에게 있습니다.
               </p>
-              <a class="btn btn-ghost btn-sm btn-block" href="mailto:contact@overgeared.gg">${U.icon("link")}문의하기</a>
+              <a class="btn btn-ghost btn-sm btn-block" href="mailto:dkahdekd@naver.com">${U.icon("link")}문의하기</a>
             </div>
           </section>
         </aside>

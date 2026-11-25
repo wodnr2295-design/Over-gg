@@ -188,7 +188,7 @@
               <p class="tiny" style="color:#d9cba6;line-height:1.7">
                 본 사이트는 비공식 팬 사이트이며, 템빨: 오버기어드의 상표 및 저작권은 원저작권자에게 있습니다.
               </p>
-              <p class="tiny dim" style="line-height:1.6">문의 · 정정 요청: <a href="mailto:contact@overgeared.gg" style="color:var(--gold)">contact@overgeared.gg</a></p>
+              <p class="tiny dim" style="line-height:1.6">문의 · 정정 요청: <a href="mailto:dkahdekd@naver.com" style="color:var(--gold)">dkahdekd@naver.com</a></p>
             </div>
           </section>
         </aside>

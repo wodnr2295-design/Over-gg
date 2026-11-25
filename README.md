@@ -75,4 +75,4 @@ python3 tools/qa.py
 ## 법적 고지
 
 본 사이트는 비공식 팬 사이트이며, 템빨: 오버기어드의 상표 및 저작권은 원저작권자에게 있습니다.
-문의: contact@overgeared.gg
+문의: dkahdekd@naver.com

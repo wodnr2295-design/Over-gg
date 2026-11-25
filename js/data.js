@@ -101,7 +101,7 @@
         <h3>5. 이용자의 권리</h3>
         <ul>
           <li>브라우저 설정에서 저장된 데이터를 언제든 직접 삭제할 수 있습니다.</li>
-          <li>문의: <a href="mailto:contact@overgeared.gg">contact@overgeared.gg</a></li>
+          <li>문의: <a href="mailto:dkahdekd@naver.com">dkahdekd@naver.com</a></li>
         </ul>
         <h3>6. 고지</h3>
         <p>본 사이트는 비공식 팬 사이트이며, 템빨: 오버기어드의 상표 및 저작권은 원저작권자에게 있습니다. 본 사이트는 넥슨 및 그레이게임즈와 제휴·후원 관계가 없습니다.</p>
@@ -139,7 +139,7 @@
         <h3>5. 면책 및 문의</h3>
         <ul>
           <li>본 사이트는 비공식 팬 사이트이며, 템빨: 오버기어드의 상표 및 저작권은 원저작권자에게 있습니다.</li>
-          <li>문의: <a href="mailto:contact@overgeared.gg">contact@overgeared.gg</a></li>
+          <li>문의: <a href="mailto:dkahdekd@naver.com">dkahdekd@naver.com</a></li>
         </ul>
       `
     }
