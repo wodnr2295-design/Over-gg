@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "updatedAt": "2026-11-26T02:20:00+09:00",
+  "updatedAt": "2026-11-26T07:45:00+09:00",
   "updatePolicy": {
     "owner": "over.gg (비공식 팬 프로젝트)",
     "note": "이 파일이 사이트의 단일 데이터 소스입니다. 공지/패치 크롤러나 스케줄 액션이 이 JSON만 갱신하면 사이트 전체가 즉시 최신화됩니다. 갱신 후 tools/embed_data.py를 실행하면 file:// 로 열 때 쓰는 폴백 스냅샷도 함께 갱신됩니다.",
@@ -20,6 +20,12 @@
     "launchAt": "2026-11-26T00:00:00+09:00",
     "launchLabel": "2026.11.26 00:00 정식 오픈",
     "platforms": ["PC (Google Play Games 전용 런처)", "Android", "iOS"],
+    "minSpec": {
+      "android": "Android 11 이상 · 갤럭시 S20 이상",
+      "ios": "iOS 18 이상 · iPhone 12 이상",
+      "note": "iOS는 스토어에 최소 사양이 15로 잘못 표기되어 있어, 12월 중 18로 수정될 예정입니다.",
+      "confidence": "official"
+    },
     "originalWork": "박새날 작가의 웹소설·웹툰 <템빨>",
     "oneLiner": "장비를 만들고, 부위별 슬롯을 키우고, 그 성장을 오버클럭으로 전투에 터뜨리는 장비 중심 MMORPG",
     "serviceNote": "출시 초기에는 두 리전을 별도로 운영하고, 이후 두 지역 이용자가 함께 즐기는 콘텐츠를 순차 제공",
@@ -438,6 +444,89 @@
       "notes": ["계열별 에픽~레전더리 신규 클래스 추가", "공성전 도입으로 차원 경쟁 콘텐츠 확대"]
     }
   ],
+  "notices": [
+    {
+      "id": "server-limit-1126",
+      "date": "2026-11-26T02:59:00+09:00",
+      "category": "서버",
+      "icon": "server",
+      "short": "서버: 레가스 제한 유지, 라우엘 해제",
+      "title": "일부 서버 캐릭터 생성 제한 — 라우엘 해제, 레가스 유지",
+      "confidence": "official",
+      "summary": "출시 직후 몰린 접속을 나누려고 레가스·라우엘 두 서버에 신규 캐릭터 생성 제한이 걸렸습니다. 11/26 02:59 기준 라우엘은 풀렸고, 레가스는 계속 막혀 있습니다.",
+      "items": [
+        "레가스: 신규 캐릭터 생성 제한 유지 — 해제되면 공지로 안내",
+        "라우엘: 02:59 생성 제한 해제 — 지금 새 캐릭터를 만들 수 있습니다",
+        "사전 선점한 캐릭터명은 서버 제한과 상관없이 해당 서버에 생성 가능 (12/10까지)",
+        "아직 캐릭터가 없다면 생성 제한이 없는 서버에서 시작하면 됩니다"
+      ],
+      "links": [
+        { "label": "02:59 제한 해제 공지", "url": "https://temppal.nexon.com/news/notice/3588055" },
+        { "label": "01:01 제한 안내 공지 (02:50 수정)", "url": "https://temppal.nexon.com/news/notice/3587979" }
+      ]
+    },
+    {
+      "id": "season-pass-1",
+      "date": "2026-11-26T00:00:00+09:00",
+      "category": "상점",
+      "icon": "crown",
+      "short": "시즌 패스 1차: 1월 1일까지 최대 20레벨",
+      "title": "프리미엄 시즌 패스 1차 — 1/1 04:59까지, 최대 20레벨",
+      "confidence": "official",
+      "summary": "일일·주간·시즌 미션으로 포인트를 모아 20레벨까지 올리는 패스입니다. 무료 보상은 누구나, 유료 보상은 프리미엄 시즌 패스를 산 사람만 받습니다.",
+      "items": [
+        "기간: 11/26 00:00 ~ 2027/1/1 04:59 — 미션 진행과 구매 모두 이 기간 안에",
+        "레벨: 300포인트마다 1레벨, 최대 20레벨 (다이아로 레벨을 사서 올릴 수 있고, 20레벨까지 가능)",
+        "무료 20레벨 보상: (액세서리) 볼캡 — 회피 2",
+        "유료 20레벨 보상: (의상) 미완의 시절 — HP 회복량 2, 경험치 획득 0.5% / 볼캡과 함께 보유하면 경험치 획득 1% 세트 효과",
+        "프리미엄 시즌 패스를 사면 다이아 500개가 바로 지급",
+        "20레벨을 넘기면 300포인트마다 반복 보상 상자 — 프리미엄은 상자를 하나 더 받습니다",
+        "달성한 보상은 기간 안에 직접 받아야 하며, 받지 않은 보상은 종료 7일 뒤 우편으로 지급"
+      ],
+      "links": [
+        { "label": "프리미엄 시즌 패스 1차 공지", "url": "https://temppal.nexon.com/news/notice/3586614" }
+      ]
+    },
+    {
+      "id": "play-points-package",
+      "date": "2026-11-26T00:00:00+09:00",
+      "category": "상점",
+      "icon": "star",
+      "short": "Play Points 500P 초보자 패키지, 12월 31일까지",
+      "title": "Google Play Points 500P — 런칭 기념 초보자 성장 패키지",
+      "confidence": "official",
+      "summary": "구글 플레이 포인트 500P로 계정당 한 번 받는 초보자 성장 패키지입니다. 12/31까지 판매하고, 준비된 수량이 떨어지면 일찍 끝날 수 있습니다.",
+      "items": [
+        "기간: 11/26 00:00 ~ 12/31 23:59 · Play 포인트 500P · 구글 계정당 1회",
+        "구성: 갓 핸드 메모리 1회 소환권 5개, 파브라늄 30개, 연금 촉매제 3종 각 5개, 강화석 3종 각 10개, 골드바 20개",
+        "PC(Google Play Games)나 Android에서 구매하고, 게임에 접속해 보관함에서 받습니다",
+        "구매 취소는 되지 않고, 결제한 구글 계정 기준으로 상품이 지급됩니다"
+      ],
+      "links": [
+        { "label": "Google Play Points 전용 상품 공지", "url": "https://temppal.nexon.com/news/notice/3586615" }
+      ]
+    },
+    {
+      "id": "ios-min-spec",
+      "date": "2026-11-26T00:00:00+09:00",
+      "category": "안내",
+      "icon": "monitor",
+      "short": "iOS 최소 사양, 12월 중 18로 표기 수정",
+      "title": "iOS 최소 사양 — 스토어 표기를 12월 중 iOS 18로 수정",
+      "confidence": "official",
+      "summary": "스토어에 최소 사양이 iOS 15로 잘못 표시되어 있습니다. 원래 최소 사양은 iOS 18이고, 12월 중 스토어 표기가 18로 바뀝니다.",
+      "items": [
+        "지금은 iOS 18 미만 기기도 스토어에서 설치되지만, 원활한 플레이가 어려울 수 있습니다",
+        "변경: iOS 15 이상 → iOS 18 이상 (2026년 12월 중, 날짜가 정해지면 공지)",
+        "공식 최소 사양: Android 11 · 갤럭시 S20 이상 / iOS 18 · iPhone 12 이상",
+        "iOS 17 이하 기기는 변경 이후 설치·플레이가 어려울 수 있습니다"
+      ],
+      "links": [
+        { "label": "iOS 최소 사양 변경 예정 공지", "url": "https://temppal.nexon.com/news/notice/3587856" },
+        { "label": "플레이 사양 안내", "url": "https://temppal.nexon.com/service/download" }
+      ]
+    }
+  ],
   "slots": [
     { "id": "weapon", "name": "무기", "icon": "greatsword", "stat": "공격력", "weight": 1.25, "note": "무기 계열·개조가 전투 방식을 결정" },
     { "id": "helm", "name": "투구", "icon": "helm", "stat": "치명타 · 정신", "weight": 0.9, "note": "치명타 계열 옵션이 붙는 부위" },
@@ -454,7 +543,7 @@
   ],
   "simModel": {
     "confidence": "estimate",
-    "disclaimer": "공식 강화 확률·비용·코어 점수 산식은 공개되지 않았습니다. 아래 수치는 시뮬레이터 체험을 위한 추정치이며 실제 게임과 다릅니다.",
+    "disclaimer": "공식 확률표에는 강화할 때 얻는 '강화 경험치'의 확률(Lv.0~20)만 공개되어 있고, 필요한 경험치·비용·코어 점수 산식은 공개되지 않았습니다. 아래 수치는 시뮬레이터 체험을 위한 추정치이며 실제 게임과 다릅니다.",
     "baseMaxLevel": 5,
     "levelsPerBreakthrough": 5,
     "maxBreakthrough": 3,
@@ -495,11 +584,23 @@
     },
     {
       "q": "강화 확률과 코어 점수는 실제 게임 수치인가요?",
-      "a": "아닙니다. 공식 확률·비용·산식이 공개되지 않아 시뮬레이터는 공개된 정보를 바탕으로 계산한 추정치로 동작합니다. 화면 곳곳에 '추정치'로 표시해 두었고, 공식 수치가 공개되면 반영해 업데이트합니다."
+      "a": "시뮬레이터의 성공 확률·비용·코어 점수는 추정치입니다. 공식 확률표에는 강화할 때 얻는 '강화 경험치'의 확률(Lv.0~20)만 공개되어 있고, 필요한 경험치와 비용, 코어 점수 산식은 아직 공개되지 않았습니다. 화면 곳곳에 '추정치'로 표시해 두었고, 공식 수치가 나오면 반영해 업데이트합니다."
     },
     {
       "q": "출시일과 플랫폼은?",
-      "a": "2026년 11월 26일 00시 정식 출시. PC는 Google Play Games 전용 런처로, 모바일은 Android·iOS로 플레이합니다."
+      "a": "2026년 11월 26일 00시 정식 출시. PC는 Google Play Games 전용 런처로, 모바일은 Android·iOS로 플레이합니다. 최소 사양은 Android 11(갤럭시 S20) · iOS 18(iPhone 12)이며, iOS는 스토어에 15로 잘못 표기되어 있어 12월 중 18로 수정될 예정입니다."
+    },
+    {
+      "q": "서버 캐릭터 생성 제한이 있던데 지금은 어떤가요?",
+      "a": "11/26 0시 30분부터 레가스·라우엘 두 서버에 신규 캐릭터 생성 제한이 걸렸고, 같은 날 02:59에 라우엘이 풀렸습니다. 레가스는 아직 제한이 유지되고 있으며, 사전 선점한 캐릭터명은 서버 제한과 상관없이 생성할 수 있습니다(12/10까지)."
+    },
+    {
+      "q": "시즌 패스는 꼭 사야 하나요?",
+      "a": "무료 보상은 시즌 패스만으로도 받을 수 있고, 프리미엄 시즌 패스는 유료 보상과 다이아 500개가 더해지는 선택 상품입니다. 레벨을 다이아로 사서 올릴 수 있지만, 20레벨을 넘긴 반복 보상은 구매로 채울 수 없으니 남은 기간을 보고 판단하세요."
+    },
+    {
+      "q": "iOS 17 이하 기기에서는 플레이할 수 없나요?",
+      "a": "지금은 스토어 표기 때문에 iOS 18 미만 기기에도 설치되지만, 12월 중 최소 사양이 iOS 18로 바뀌면 설치·플레이가 어려울 수 있습니다. 공식 최소 사양은 iOS 18, iPhone 12 이상입니다."
     },
     {
       "q": "무기는 몇 종인가요?",
@@ -516,8 +617,14 @@
     { "title": "[종합] '템빨: 오버기어드', 서버 경계를 허문 경쟁과 협력 선보인다", "publisher": "Inven", "date": "2026-11-05", "url": "https://www.inven.co.kr/webzine/news/?news=323049", "used": "무기별 역할, 갓 핸드 메모리, 차원 리그" },
     { "title": "넥슨 신작 MMORPG '템빨: 오버기어드' 11월 26일 출시", "publisher": "GameMeca", "date": "2026-11-05", "url": "https://www.gamemeca.com/view.php?gid=1783052", "used": "전투 구조, 클래스 예시" },
     { "title": "템빨 오버기어드, 출시 전 알아둘 필독 정보 15선", "publisher": "GameTok", "date": "2026-11-24", "url": "https://www.gametoc.co.kr/news/articleView.html?idxno=113372", "used": "클래스 획득 방식, 3개월·6개월 로드맵, 코어 점수 잠금" },
-    { "title": "다운로드 - 템빨: 오버기어드", "publisher": "NEXON 공식", "date": null, "url": "https://temppal.nexon.com/service/download", "used": "플랫폼·PC 런처" },
-    { "title": "템빨: 오버기어드 - Apps on Google Play", "publisher": "Google Play", "date": null, "url": "https://play.google.com/store/apps/details?id=com.nexon.overgeared", "used": "세계관·무기·장비·차원 소개" }
+    { "title": "다운로드 - 템빨: 오버기어드", "publisher": "NEXON 공식", "date": null, "url": "https://temppal.nexon.com/service/download", "used": "플랫폼·PC 런처, 최소 사양(Android 11·iOS 18)" },
+    { "title": "템빨: 오버기어드 - Apps on Google Play", "publisher": "Google Play", "date": null, "url": "https://play.google.com/store/apps/details?id=com.nexon.overgeared", "used": "세계관·무기·장비·차원 소개" },
+    { "title": "일부 서버 캐릭터 생성 제한 안내 (11/26 오전 2시 50분 수정)", "publisher": "NEXON 공식 공지", "date": "2026-11-26", "url": "https://temppal.nexon.com/news/notice/3587979", "used": "레가스·라우엘 생성 제한, 라우엘 해제, 사전 선점 예외" },
+    { "title": "일부 서버 캐릭터 생성 제한 해제 안내 (11/26 02:59)", "publisher": "NEXON 공식 공지", "date": "2026-11-26", "url": "https://temppal.nexon.com/news/notice/3588055", "used": "라우엘 서버 생성 제한 해제" },
+    { "title": "프리미엄 시즌 패스 1차 안내 (11/26 00:00 ~ 1/1 04:59)", "publisher": "NEXON 공식 공지", "date": "2026-11-26", "url": "https://temppal.nexon.com/news/notice/3586614", "used": "20레벨·300P 구조, 볼캡·미완의 시절 보상, 다이아 500개, 반복 보상" },
+    { "title": "Google Play Points 전용 상품 안내 (11/26 ~ 12/31)", "publisher": "NEXON 공식 공지", "date": "2026-11-26", "url": "https://temppal.nexon.com/news/notice/3586615", "used": "500P 런칭 기념 초보자 성장 패키지 구성·제한" },
+    { "title": "iOS 최소 사양이 잘못 적용된 현상 및 변경 예정 안내 (12월 중)", "publisher": "NEXON 공식 공지", "date": "2026-11-26", "url": "https://temppal.nexon.com/news/notice/3587856", "used": "iOS 15 → 18 변경 예정" },
+    { "title": "확률형 아이템 공개 — 오버기어드 강화", "publisher": "NEXON 공식", "date": null, "url": "https://m.nexon.com/probability/8012?language=ko", "used": "강화 시 강화 경험치 지급 확률(Lv.0~20)" }
   ],
   "boardSeed": [
     {

@@ -29,6 +29,34 @@
       </div>`;
   }
 
+  function noticeCards(data) {
+    const list = data.notices || [];
+    if (!list.length) return "";
+    return list
+      .map(
+        (n) => `
+      <article class="patch-card">
+        <div class="patch-card-head">
+          <span class="badge badge-soft-gold">${U.esc(n.category)}</span>
+          <h3 style="flex:1 1 200px">${U.esc(n.title)}</h3>
+          <span class="tiny dim mono">${U.formatDate(n.date, true)}</span>
+          ${U.confBadge(n.confidence)}
+        </div>
+        <p class="small muted">${U.esc(n.summary)}</p>
+        <ul class="patch-notes">${n.items.map((i) => `<li>${U.esc(i)}</li>`).join("")}</ul>
+        ${(n.links || []).length
+          ? `<div class="row-wrap" style="gap:6px 14px">${n.links
+              .map(
+                (l) =>
+                  `<a class="link-arrow" href="${U.esc(l.url)}" target="_blank" rel="noopener noreferrer" style="font-size:11px">${U.esc(l.label)} ${U.icon("external")}</a>`
+              )
+              .join("")}</div>`
+          : ""}
+      </article>`
+      )
+      .join("");
+  }
+
   function patchCards(data) {
     return data.patches
       .map(
@@ -142,6 +170,18 @@
 
       <div class="layout">
         <div class="stack" style="gap:24px">
+          <section class="section">
+            <div class="section-head">
+              <div class="titles">
+                <span class="eyebrow">Official Notices</span>
+                <h2 class="section-title">공식 공지 · 지금 확인할 것</h2>
+                <p class="section-desc">넥슨 공식 공지사항에서 직접 확인한 내용만 요약했습니다. 실제 조건·일정은 원문 링크에서 확인하세요.</p>
+              </div>
+              <span class="badge badge-gold">공식 확인 ${(data.notices || []).length}건</span>
+            </div>
+            <div class="stack">${noticeCards(data)}</div>
+          </section>
+
           <section class="section">
             <div class="section-head">
               <div class="titles">

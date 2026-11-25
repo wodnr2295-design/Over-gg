@@ -146,6 +146,15 @@
     data.patches.forEach((p) => {
       items.push({ type: "패치", title: `v${p.version} ${p.title}`, desc: p.summary, href: "#/patches", icon: "scroll" });
     });
+    (data.notices || []).forEach((n) => {
+      items.push({
+        type: "공지",
+        title: n.title,
+        desc: `${n.category} · ${n.summary}`,
+        href: "#/patches",
+        icon: n.icon || "info"
+      });
+    });
     data.faq.forEach((f) => {
       items.push({ type: "FAQ", title: f.q, desc: f.a, href: "#/patches", icon: "info" });
     });

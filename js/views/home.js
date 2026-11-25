@@ -194,6 +194,22 @@
     </section>`;
   }
 
+  function noticeStrip(data) {
+    const list = data.notices || [];
+    if (!list.length) return "";
+    const head = list.slice(0, 3).map((n) => U.esc(n.short || n.title));
+    const more = list.length > 3 ? ` · 외 ${list.length - 3}건` : "";
+    return `
+      <section class="notice notice-info">
+        ${U.icon("alert")}
+        <span style="line-height:1.8">
+          <b>오늘 올라온 공식 공지 ${list.length}건</b>
+          <a href="#/patches" style="color:var(--cyan);font-weight:700;margin-left:6px">전체 보기</a><br />
+          ${head.join(" · ")}${more}
+        </span>
+      </section>`;
+  }
+
   function render(data) {
     const launch = data.game.launchAt;
     const dPlus = U.dayDiff(launch, new Date());
@@ -226,11 +242,14 @@
               <span>${U.icon("monitor")}PC · Android · iOS</span>
               <span>${U.icon("users")}${U.esc(data.game.developer)} / ${U.esc(data.game.publisher)}</span>
               <span>${U.icon("book")}원작 ${U.esc(data.game.originalWork)}</span>
+              ${data.game.minSpec ? `<span>${U.icon("shield")}최소 사양 ${U.esc(data.game.minSpec.android.split(" · ")[0])} · ${U.esc(data.game.minSpec.ios.split(" · ")[0])}</span>` : ""}
             </div>
           </div>
           ${heroHud()}
         </div>
       </section>
+
+      ${noticeStrip(data)}
 
       ${statStrip(data)}
 
