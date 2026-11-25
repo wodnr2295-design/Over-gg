@@ -1,0 +1,19 @@
+{
+  "name": "over.gg — 템빨: 오버기어드 비공식 팬 정보",
+  "short_name": "오버.gg",
+  "description": "템빨: 오버기어드 무기 가이드, 오버기어드·오버클럭 시뮬레이터, 공략 보드, 패치·로드맵.",
+  "lang": "ko-KR",
+  "start_url": "./index.html#/home",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#06090f",
+  "theme_color": "#06090f",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

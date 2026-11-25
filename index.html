@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>템빨: 오버기어드 정보 · 오버기어드 시뮬레이터 | over.gg</title>
+<meta name="description" content="템빨: 오버기어드 비공식 팬 정보 사이트. 4대 무기(지팡이·대검·활·바이블) 가이드, 오버기어드·오버클럭 강화 시뮬레이터, 코어 점수 계산, 공략·파티 모집 보드, 패치·로드맵 정리." />
+<meta name="theme-color" content="#06090f" />
+<meta name="color-scheme" content="dark" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="템빨: 오버기어드 정보 · 오버기어드 시뮬레이터 | over.gg" />
+<meta property="og:description" content="무기 4계열 비교, 강화·오버클럭 시뮬레이터, 코어 점수 계산, 공략 보드까지. 비공식 팬 프로젝트." />
+<meta property="og:site_name" content="over.gg" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="manifest" href="site.webmanifest" />
+<link rel="stylesheet" href="css/core.css" />
+<link rel="stylesheet" href="css/views.css" />
+</head>
+<body>
+<a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+<!-- =====================================================================
+     SVG icon sprite — all icons drawn for this project, no game assets
+     ===================================================================== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <g id="i-anvil"><path d="M3 14h9l2-4h7l-3 6H11l-1 4h4v2H5l2-4H3z"/><path d="M8 4l3 4"/><path d="M14 2l1.5 3.5"/></g>
+    <g id="i-home"><path d="M4 11.2 12 4l8 7.2"/><path d="M6 10.4V20h12v-9.6"/><path d="M10 20v-5h4v5"/></g>
+    <g id="i-swords"><path d="M4 4l9.5 9.5"/><path d="M20 4l-9.5 9.5"/><path d="M13.8 14.2 17 17.4"/><path d="M10.2 14.2 7 17.4"/><path d="M4 4h3.2L4 7.2z"/><path d="M20 4h-3.2L20 7.2z"/></g>
+    <g id="i-gauge"><path d="M4 17a8 8 0 0 1 16 0"/><path d="M12 17l4.4-6.2"/><circle cx="12" cy="17" r="1.6"/></g>
+    <g id="i-board"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 9h8"/><path d="M8 13h8"/><path d="M8 17h5"/></g>
+    <g id="i-scroll"><path d="M6 4h11a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6"/><path d="M6 4a2 2 0 0 0-2 2v1h3"/><path d="M9 9h7"/><path d="M9 13h7"/><path d="M9 17h4"/></g>
+    <g id="i-menu"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></g>
+    <g id="i-x"><path d="M6 6l12 12"/><path d="M18 6L6 18"/></g>
+    <g id="i-search"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.4 15.4 21 21"/></g>
+    <g id="i-chevron-right"><path d="M9 5.5l6.5 6.5L9 18.5"/></g>
+    <g id="i-chevron-down"><path d="M6 9.5 12 15.5 18 9.5"/></g>
+    <g id="i-arrow-right"><path d="M4 12h15"/><path d="M13.5 6.5 19 12l-5.5 5.5"/></g>
+    <g id="i-arrow-up-right"><path d="M6.5 17.5 17.5 6.5"/><path d="M9 6.5h8.5V15"/></g>
+    <g id="i-external"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></g>
+    <g id="i-check"><path d="M4.5 12.5 9.5 17.5 20 6.5"/></g>
+    <g id="i-alert"><path d="M12 3.5 21 20H3z"/><path d="M12 10v4.5"/><circle cx="12" cy="17.4" r=".9" fill="currentColor" stroke="none"/></g>
+    <g id="i-info"><circle cx="12" cy="12" r="9"/><path d="M12 11v6"/><circle cx="12" cy="7.6" r=".9" fill="currentColor" stroke="none"/></g>
+    <g id="i-refresh"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4v4h-4"/></g>
+    <g id="i-plus"><path d="M12 5v14"/><path d="M5 12h14"/></g>
+    <g id="i-heart"><path d="M12 20.2S4 15.6 4 10.3A4.3 4.3 0 0 1 12 7.7a4.3 4.3 0 0 1 8 2.6c0 5.3-8 9.9-8 9.9z"/></g>
+    <g id="i-eye"><path d="M2.5 12S6.4 5.8 12 5.8 21.5 12 21.5 12 17.6 18.2 12 18.2 2.5 12 2.5 12z"/><circle cx="12" cy="12" r="2.8"/></g>
+    <g id="i-comment"><path d="M21 11.6a8.2 8.2 0 0 1-8.2 8.2H8.5L4 23v-5.2A8.2 8.2 0 0 1 11.8 3.4h1A8.2 8.2 0 0 1 21 11.6z"/></g>
+    <g id="i-clock"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.4V12l3.2 2"/></g>
+    <g id="i-user"><circle cx="12" cy="8" r="3.6"/><path d="M4.8 20.2a7.4 7.4 0 0 1 14.4 0"/></g>
+    <g id="i-users"><circle cx="9" cy="8.4" r="3.2"/><path d="M3 20a6.2 6.2 0 0 1 12 0"/><path d="M16 5.6a3.2 3.2 0 0 1 0 6"/><path d="M17.5 14.4A6.2 6.2 0 0 1 21 20"/></g>
+    <g id="i-pen"><path d="M4 20.2 4.9 16 15.4 5.5a2.1 2.1 0 0 1 3 3L7.9 19z"/><path d="M13.8 7.1 16.9 10.2"/></g>
+    <g id="i-copy"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M15 6V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h1"/></g>
+    <g id="i-spark"><path d="M12 3l1.9 5.6L19.5 10 14 12l-2 6-2-6-5.5-2 5.6-1.4z"/></g>
+    <g id="i-shield"><path d="M12 3.2 20 6v6c0 4.8-3.6 7.8-8 8.8-4.4-1-8-4-8-8.8V6z"/><path d="M9 12.2l2.2 2.2L15.4 10"/></g>
+    <g id="i-flame"><path d="M12 3c3 3.8 5 6 5 9a5 5 0 0 1-10 0c0-2 1-3.2 2.2-4.2 0 1.3.5 2.2 1.4 2.7C10.2 8.2 11 6 12 3z"/></g>
+    <g id="i-chip"><rect x="7" y="7" width="10" height="10" rx="1.6"/><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"/></g>
+    <g id="i-lock"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8.4 10.5V8a3.6 3.6 0 0 1 7.2 0v2.5"/></g>
+    <g id="i-star"><path d="M12 3.6l2.6 5.5 6 .8-4.4 4.2 1.1 6-5.3-2.9-5.3 2.9 1.1-6L3.4 9.9l6-.8z"/></g>
+    <g id="i-server"><rect x="3" y="4" width="18" height="6.4" rx="1.8"/><rect x="3" y="13.6" width="18" height="6.4" rx="1.8"/><path d="M6.5 7.2h.01M6.5 16.8h.01"/></g>
+    <g id="i-calendar"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17"/><path d="M8 3v4M16 3v4"/></g>
+    <g id="i-monitor"><rect x="3" y="4.5" width="18" height="12" rx="2"/><path d="M9 20h6M12 16.5V20"/></g>
+    <g id="i-filter"><path d="M3.5 5.5h17l-6.6 7.6V20l-3.8-2v-4.9z"/></g>
+    <g id="i-book"><path d="M12 6.2C10.2 4.9 7.8 4.4 4 4.6v14c3.8-.2 6.2.3 8 1.6 1.8-1.3 4.2-1.8 8-1.6v-14c-3.8-.2-6.2.3-8 1.6z"/><path d="M12 6.2v14"/></g>
+    <g id="i-hammer"><path d="M13.5 3.5 9 8l2 2-6 6 3 3 6-6 2 2 4.5-4.5z"/><path d="M4.5 19.5 7 22"/></g>
+    <g id="i-wand"><path d="M4 20 15.5 8.5"/><path d="M17 3v4M15 5h4"/><path d="M20 10v3M18.5 11.5h3"/><path d="M8 4v3M6.5 5.5h3"/></g>
+    <g id="i-filter-list"><path d="M4 7h16"/><path d="M7 12h10"/><path d="M10 17h4"/></g>
+    <g id="i-link"><path d="M10 13.6a4 4 0 0 0 5.7 0l2.6-2.6a4 4 0 0 0-5.7-5.7l-1.3 1.3"/><path d="M14 10.4a4 4 0 0 0-5.7 0l-2.6 2.6a4 4 0 0 0 5.7 5.7l1.3-1.3"/></g>
+    <g id="i-crown"><path d="M4 18h16l-1.2-9-4.3 4L12 6l-2.5 7-4.3-4z"/><path d="M4 21h16"/></g>
+    <g id="i-download"><path d="M12 3.5v11"/><path d="M7.5 10.5 12 15l4.5-4.5"/><path d="M4.5 19.5h15"/></g>
+    <g id="i-save"><path d="M5 3.5h11l3 3v14H5z"/><path d="M8.5 3.5v6h7v-6"/><path d="M8.5 14h7"/></g>
+    <g id="i-staff"><path d="M7.2 21.2 14.6 8.6"/><circle cx="17" cy="5.4" r="3"/><path d="M20.6 2.2l1.2-1.2M21.6 6.6h1.4"/></g>
+    <g id="i-greatsword"><path d="M12 1.9 14.3 6.6v8.6H9.7V6.6z"/><path d="M5.6 15.7h12.8"/><path d="M12 16.1v3.4"/><path d="M10.3 21.1h3.4"/></g>
+    <g id="i-bow"><path d="M8.4 3.4c9.2 3.6 9.2 14 0 17.2"/><path d="M4.4 12h12.2"/><path d="M13.6 9.2 16.8 12l-3.2 2.8"/></g>
+    <g id="i-bible"><path d="M5.6 4.6A1.6 1.6 0 0 1 7.2 3H19v16.6H7a1.7 1.7 0 0 0-1.4 2.3"/><path d="M5.6 4.6V20"/><path d="M13.2 7.4v5.2M10.6 10h5.2"/></g>
+    <g id="i-helm"><path d="M4.8 12.6a7.2 7.2 0 0 1 14.4 0v4.6a2.6 2.6 0 0 1-2.6 2.6H7.4a2.6 2.6 0 0 1-2.6-2.6z"/><path d="M4.8 11.6h14.4"/><path d="M12 7.2v10"/><path d="M9 19.8v-4.6"/></g>
+    <g id="i-armor"><path d="M8.4 3 12 4.8 15.6 3 19 6v4.2l-2 1.2V21H7V11.4L5 10.2V6z"/><path d="M12 4.8V21"/></g>
+    <g id="i-gloves"><path d="M7 21v-7.4L5.2 11.6a1.7 1.7 0 0 1 2.3-2.4L9 10.4V4.8a1.5 1.5 0 0 1 3 0v5M12 4.8V9M15 5.2v3.4"/><path d="M7 21h11v-4.2c0-1.4-1-2.2-2.4-2.2H15V9"/></g>
+    <g id="i-boots"><path d="M8 3.5h4.6v8.2c0 1.8 1 2.8 2.6 3.7 1.8 1 2.8 2 2.8 3.6V21H8z"/><path d="M6.5 21h13"/><path d="M8 8h4.6"/></g>
+    <g id="i-amulet"><path d="M4.4 8.4a8.2 8.2 0 0 1 15.2 0"/><path d="M12 6.2v3.4"/><path d="M12 9.6 16 15l-4 5.6L8 15z"/></g>
+    <g id="i-party"><circle cx="7.5" cy="8" r="2.8"/><circle cx="16.5" cy="8" r="2.8"/><path d="M2.5 19.5a5 5 0 0 1 10 0"/><path d="M11.5 19.5a5 5 0 0 1 10 0"/></g>
+  </defs>
+</svg>
+
+<!-- =====================================================================
+     Header
+     ===================================================================== -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#/home" aria-label="over.gg 홈">
+      <span class="brand-mark"><svg viewBox="0 0 24 24"><use href="#i-anvil"/></svg></span>
+      <span class="brand-text">
+        <span class="brand-title">오버<b>.gg</b></span>
+        <span class="brand-sub">Unofficial Fan DB</span>
+      </span>
+    </a>
+
+    <nav class="main-nav" id="mainNav" aria-label="주요 메뉴">
+      <a class="nav-link" href="#/home" data-route="home"><svg viewBox="0 0 24 24"><use href="#i-home"/></svg>홈</a>
+      <a class="nav-link" href="#/weapons" data-route="weapons"><svg viewBox="0 0 24 24"><use href="#i-swords"/></svg>무기·클래스</a>
+      <a class="nav-link" href="#/simulator" data-route="simulator"><svg viewBox="0 0 24 24"><use href="#i-gauge"/></svg>시뮬레이터</a>
+      <a class="nav-link" href="#/board" data-route="board"><svg viewBox="0 0 24 24"><use href="#i-board"/></svg>공략·파티</a>
+      <a class="nav-link" href="#/patches" data-route="patches"><svg viewBox="0 0 24 24"><use href="#i-scroll"/></svg>패치·로드맵</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" type="button" data-open-search aria-label="통합 검색">
+        <svg viewBox="0 0 24 24"><use href="#i-search"/></svg>
+      </button>
+      <a class="btn btn-primary btn-sm btn-cta" href="#/simulator">
+        <svg viewBox="0 0 24 24"><use href="#i-flame"/></svg>강화 시뮬
+      </a>
+      <button class="icon-btn menu-toggle" type="button" id="menuToggle" aria-expanded="false" aria-controls="drawer" aria-label="메뉴 열기">
+        <svg viewBox="0 0 24 24"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="drawer">
+  <nav aria-label="모바일 메뉴">
+    <a class="nav-link" href="#/home" data-route="home"><svg viewBox="0 0 24 24"><use href="#i-home"/></svg>홈 대시보드</a>
+    <a class="nav-link" href="#/weapons" data-route="weapons"><svg viewBox="0 0 24 24"><use href="#i-swords"/></svg>무기·클래스 가이드</a>
+    <a class="nav-link" href="#/simulator" data-route="simulator"><svg viewBox="0 0 24 24"><use href="#i-gauge"/></svg>오버기어드 시뮬레이터</a>
+    <a class="nav-link" href="#/board" data-route="board"><svg viewBox="0 0 24 24"><use href="#i-board"/></svg>공략·파티 게시판</a>
+    <a class="nav-link" href="#/patches" data-route="patches"><svg viewBox="0 0 24 24"><use href="#i-scroll"/></svg>패치·업데이트</a>
+  </nav>
+</div>
+
+<!-- =====================================================================
+     App
+     ===================================================================== -->
+<main class="page container" id="main">
+  <div id="topAd" class="ad-top"></div>
+  <div id="app" role="region" aria-live="polite">
+    <div class="empty">
+      <svg viewBox="0 0 24 24"><use href="#i-anvil"/></svg>
+      <b>데이터를 불러오는 중입니다</b>
+      <span>잠시만 기다려 주세요.</span>
+    </div>
+  </div>
+</main>
+
+<!-- =====================================================================
+     Footer
+     ===================================================================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#/home" aria-label="over.gg 홈">
+          <span class="brand-mark"><svg viewBox="0 0 24 24"><use href="#i-anvil"/></svg></span>
+          <span class="brand-text">
+            <span class="brand-title">오버<b>.gg</b></span>
+            <span class="brand-sub">Unofficial Fan DB</span>
+          </span>
+        </a>
+        <p>
+          <b style="color:var(--text-2)">템빨: 오버기어드</b>의 시스템·무기·로드맵을 공개 정보 기준으로 정리한
+          비공식 팬 프로젝트입니다. 게임 이미지나 공식 아이콘을 쓰지 않고, 모든 아이콘은 자체 제작한 SVG로 그렸습니다.
+        </p>
+        <div class="row-wrap" style="gap:6px">
+          <span class="badge badge-soft-gold">팬메이드</span>
+          <span class="badge badge-ghost">자체 제작 아이콘</span>
+          <span class="badge badge-ghost">출처 표기</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>사이트</h4>
+        <ul>
+          <li><a href="#/home">홈 대시보드</a></li>
+          <li><a href="#/weapons">무기·클래스 가이드</a></li>
+          <li><a href="#/simulator">오버기어드 시뮬레이터</a></li>
+          <li><a href="#/board">공략·파티 게시판</a></li>
+          <li><a href="#/patches">패치·업데이트</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>자료</h4>
+        <ul>
+          <li><a href="#/patches">업데이트 로드맵</a></li>
+          <li><a href="#/patches">출처 목록</a></li>
+          <li><a href="#/patches">자주 묻는 질문</a></li>
+          <li><a href="data/game-data.json" target="_blank" rel="noopener">game-data.json 열기</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>문의 · 정책</h4>
+        <ul>
+          <li><a href="mailto:contact@overgeared.gg">contact@overgeared.gg</a></li>
+          <li><button type="button" data-open-legal="privacy">개인정보처리방침</button></li>
+          <li><button type="button" data-open-legal="terms">이용약관</button></li>
+          <li>
+            <label class="switch" title="애드센스 플레이스홀더 미리보기">
+              <input type="checkbox" id="adsToggle" />
+              <span class="switch-track"></span>
+              <span>광고 영역 미리보기</span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="disclaimer-box">
+        <strong>본 사이트는 비공식 팬 사이트이며, 템빨: 오버기어드의 상표 및 저작권은 원저작권자에게 있습니다.</strong><br />
+        게임 정보·수치는 공식 홈페이지 및 공개 보도를 기준으로 정리했으며, 확률·비용 등 비공개 수치는
+        시뮬레이터용 <b>팬 모델 예시값</b>으로 명시했습니다. 문의: <a href="mailto:contact@overgeared.gg" style="color:var(--gold)">contact@overgeared.gg</a>
+      </div>
+      <div class="footer-meta">
+        <span>© <span id="year">2026</span> over.gg</span>
+        <span class="dot"></span>
+        <span>데이터 기준 <span id="dataStamp">—</span></span>
+        <span class="dot"></span>
+        <span>NEXON · 그레이게임즈와 무관한 팬 프로젝트</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Mobile tab bar -->
+<div class="tabbar">
+  <nav aria-label="모바일 하단 메뉴">
+    <a href="#/home" data-route="home"><svg viewBox="0 0 24 24"><use href="#i-home"/></svg><span>홈</span></a>
+    <a href="#/weapons" data-route="weapons"><svg viewBox="0 0 24 24"><use href="#i-swords"/></svg><span>무기</span></a>
+    <a href="#/simulator" data-route="simulator"><svg viewBox="0 0 24 24"><use href="#i-gauge"/></svg><span>시뮬</span></a>
+    <a href="#/board" data-route="board"><svg viewBox="0 0 24 24"><use href="#i-board"/></svg><span>게시판</span></a>
+    <a href="#/patches" data-route="patches"><svg viewBox="0 0 24 24"><use href="#i-scroll"/></svg><span>패치</span></a>
+  </nav>
+</div>
+
+<!-- Legal modals -->
+<div class="modal" id="legalModal" role="dialog" aria-modal="true" aria-labelledby="legalTitle">
+  <div class="modal-card">
+    <div class="modal-head">
+      <h2 id="legalTitle">개인정보처리방침</h2>
+      <button class="icon-btn" type="button" data-close-legal aria-label="닫기"><svg viewBox="0 0 24 24"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="modal-body legal-body" id="legalBody"></div>
+  </div>
+</div>
+
+<!-- Search modal -->
+<div class="modal" id="searchModal" role="dialog" aria-modal="true" aria-labelledby="searchTitle">
+  <div class="modal-card" style="width:min(600px,100%)">
+    <div class="modal-head">
+      <h2 id="searchTitle">사이트 검색</h2>
+      <button class="icon-btn" type="button" data-close-search aria-label="닫기"><svg viewBox="0 0 24 24"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="modal-body">
+      <div class="search-field">
+        <svg viewBox="0 0 24 24"><use href="#i-search"/></svg>
+        <input type="search" id="globalSearch" placeholder="무기, 시스템, 패치, 게시글 검색 (예: 오버클럭, 바이블, 파브라늄)" autocomplete="off" />
+      </div>
+      <div id="globalResults" class="stack-sm"></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast-wrap" id="toastWrap" aria-live="polite" aria-atomic="true"></div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "over.gg — 템빨: 오버기어드 비공식 팬 정보",
+  "inLanguage": "ko-KR",
+  "description": "템빨: 오버기어드의 무기 가이드, 오버기어드·오버클럭 시뮬레이터, 공략 게시판, 패치·로드맵을 정리한 비공식 팬 사이트.",
+  "disclaimer": "본 사이트는 비공식 팬 사이트이며, 템빨: 오버기어드의 상표 및 저작권은 원저작권자에게 있습니다."
+}
+</script>
+
+<script src="js/util.js"></script>
+<script src="data/game-data.fallback.js"></script>
+<script src="js/data.js"></script>
+<script src="js/ads.js"></script>
+<script src="js/sim.js"></script>
+<script src="js/views/home.js"></script>
+<script src="js/views/weapons.js"></script>
+<script src="js/views/simulator.js"></script>
+<script src="js/views/board.js"></script>
+<script src="js/views/patches.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

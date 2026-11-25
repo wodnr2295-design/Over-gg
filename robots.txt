@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# 비공식 팬 사이트 (over.gg 프로토타입)
