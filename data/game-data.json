@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "updatedAt": "2026-11-26T07:45:00+09:00",
+  "updatedAt": "2026-11-26T08:20:00+09:00",
   "updatePolicy": {
     "owner": "over.gg (비공식 팬 프로젝트)",
     "note": "이 파일이 사이트의 단일 데이터 소스입니다. 공지/패치 크롤러나 스케줄 액션이 이 JSON만 갱신하면 사이트 전체가 즉시 최신화됩니다. 갱신 후 tools/embed_data.py를 실행하면 file:// 로 열 때 쓰는 폴백 스냅샷도 함께 갱신됩니다.",
@@ -306,6 +306,19 @@
       "confidence": "press"
     },
     {
+      "id": "enhance-exp",
+      "name": "강화 경험치",
+      "kicker": "공식 확률로 쌓이는 슬롯 성장",
+      "summary": "오버기어드 슬롯 강화는 한 번에 성공·실패가 갈리는 방식이 아니라, 시도마다 '강화 경험치'가 쌓이고 경험치가 가득 차면 레벨이 오르는 방식입니다.",
+      "points": [
+        "Lv.0~Lv.10: 강화 경험치 +1000 100%",
+        "Lv.10~Lv.15: +400 70% · +1000 30%",
+        "Lv.15~Lv.20: +150 45% · +400 35% · +1000 20%",
+        "레벨업에 필요한 경험치 양과 강화 비용은 공개되지 않음"
+      ],
+      "confidence": "official"
+    },
+    {
       "id": "overclock",
       "name": "오버클럭",
       "kicker": "전투 발동형 성장 보상",
@@ -541,29 +554,41 @@
     { "id": "unique", "name": "유니크", "mult": 1.26, "coreFlat": 420 },
     { "id": "legendary", "name": "레전더리", "mult": 1.45, "coreFlat": 760 }
   ],
+  "enhanceExp": {
+    "confidence": "official",
+    "checkedAt": "2026-11-26",
+    "title": "오버기어드 강화 — 강화 경험치 지급 확률",
+    "scope": "전 부위 공통",
+    "maxLevel": 20,
+    "sourceLabel": "넥슨 확률형 아이템 공개 · 오버기어드 강화",
+    "sourceUrl": "https://m.nexon.com/probability/8012?language=ko",
+    "note": "강화 1회마다 아래 확률로 '강화 경험치'가 지급되고, 경험치가 가득 차면 레벨이 오릅니다. 공식 표에는 성공·실패 구분이 없으며, 레벨업에 필요한 경험치 양과 강화 비용도 공개되어 있지 않습니다.",
+    "brackets": [
+      { "from": 0, "to": 9, "outcomes": [{ "exp": 1000, "rate": 100 }] },
+      { "from": 10, "to": 14, "outcomes": [{ "exp": 400, "rate": 70 }, { "exp": 1000, "rate": 30 }] },
+      { "from": 15, "to": 19, "outcomes": [{ "exp": 150, "rate": 45 }, { "exp": 400, "rate": 35 }, { "exp": 1000, "rate": 20 }] }
+    ]
+  },
   "simModel": {
     "confidence": "estimate",
-    "disclaimer": "공식 확률표에는 강화할 때 얻는 '강화 경험치'의 확률(Lv.0~20)만 공개되어 있고, 필요한 경험치·비용·코어 점수 산식은 공개되지 않았습니다. 아래 수치는 시뮬레이터 체험을 위한 추정치이며 실제 게임과 다릅니다.",
-    "baseMaxLevel": 5,
+    "disclaimer": "강화 경험치 확률은 넥슨 공식 공개표 그대로입니다. 레벨업에 필요한 경험치·강화 비용·돌파 비용·코어 점수·오버클럭 기준은 공식에 없어 체험용으로 계산한 추정치입니다.",
+    "baseMaxLevel": 20,
     "levelsPerBreakthrough": 5,
     "maxBreakthrough": 3,
-    "breakthroughRatio": 0.12,
-    "safeEnhanceBase": 5,
-    "signatureSafeBonus": 2,
+    "requiredExpByTarget": [1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1200, 1400, 1600, 1800, 2000, 2400, 2800, 3200, 3600, 4000],
+    "requiredExpBeyondBase": 4500,
+    "requiredExpBeyondStep": 500,
+    "costBase": 20,
+    "costPerLevel": 7,
+    "breakthroughCostBase": 400,
+    "breakthroughCostStep": 300,
+    "scavengeBase": 250,
+    "scavengeRange": 450,
+    "fabraniumStart": 12000,
     "signatureAmpBase": 350,
-    "fabraniumStart": 2400,
-    "failRefundBase": 6,
-    "successRateByLevel": [
-      { "from": 1, "to": 3, "rate": 1.0, "cost": 12 },
-      { "from": 4, "to": 5, "rate": 0.9, "cost": 18 },
-      { "from": 6, "to": 8, "rate": 0.75, "cost": 28 },
-      { "from": 9, "to": 11, "rate": 0.6, "cost": 42 },
-      { "from": 12, "to": 14, "rate": 0.45, "cost": 60 },
-      { "from": 15, "to": 17, "rate": 0.32, "cost": 82 },
-      { "from": 18, "to": 20, "rate": 0.22, "cost": 110 }
-    ],
-    "corePerLevel": 120,
-    "corePerBreakthrough": 350,
+    "corePerLevel": 110,
+    "corePerBreakthrough": 420,
+    "sealedLevels": [5, 10, 15],
     "gaugeMax": 100,
     "gaugeNormal": 7,
     "gaugeCrit": 14,
@@ -583,8 +608,8 @@
       "a": "아닙니다. 비공식 팬 정보·시뮬레이터 사이트입니다. 상표와 저작권은 원저작권자에게 있으며, 게임 이미지·공식 아이콘은 사용하지 않고 자체 제작한 SVG 아이콘으로만 화면을 구성했습니다."
     },
     {
-      "q": "강화 확률과 코어 점수는 실제 게임 수치인가요?",
-      "a": "시뮬레이터의 성공 확률·비용·코어 점수는 추정치입니다. 공식 확률표에는 강화할 때 얻는 '강화 경험치'의 확률(Lv.0~20)만 공개되어 있고, 필요한 경험치와 비용, 코어 점수 산식은 아직 공개되지 않았습니다. 화면 곳곳에 '추정치'로 표시해 두었고, 공식 수치가 나오면 반영해 업데이트합니다."
+      "q": "시뮬레이터 확률은 실제 게임 수치인가요?",
+      "a": "강화 1회에 지급되는 '강화 경험치'의 확률은 넥슨 공식 확률 공개표(오버기어드 강화 · 전 부위 공통)와 똑같습니다. Lv.0~10은 +1000이 100%, Lv.10~15는 +400 70%·+1000 30%, Lv.15~20은 +150 45%·+400 35%·+1000 20%입니다. 다만 공식 표에는 레벨업에 필요한 경험치 양과 강화 비용이 없어서, 그 값과 코어 점수·오버클럭 기준은 체험용 추정치로 계산했습니다. 화면에서 '공식 확인'과 '추정치'를 구분해 표시합니다."
     },
     {
       "q": "출시일과 플랫폼은?",
@@ -624,7 +649,7 @@
     { "title": "프리미엄 시즌 패스 1차 안내 (11/26 00:00 ~ 1/1 04:59)", "publisher": "NEXON 공식 공지", "date": "2026-11-26", "url": "https://temppal.nexon.com/news/notice/3586614", "used": "20레벨·300P 구조, 볼캡·미완의 시절 보상, 다이아 500개, 반복 보상" },
     { "title": "Google Play Points 전용 상품 안내 (11/26 ~ 12/31)", "publisher": "NEXON 공식 공지", "date": "2026-11-26", "url": "https://temppal.nexon.com/news/notice/3586615", "used": "500P 런칭 기념 초보자 성장 패키지 구성·제한" },
     { "title": "iOS 최소 사양이 잘못 적용된 현상 및 변경 예정 안내 (12월 중)", "publisher": "NEXON 공식 공지", "date": "2026-11-26", "url": "https://temppal.nexon.com/news/notice/3587856", "used": "iOS 15 → 18 변경 예정" },
-    { "title": "확률형 아이템 공개 — 오버기어드 강화", "publisher": "NEXON 공식", "date": null, "url": "https://m.nexon.com/probability/8012?language=ko", "used": "강화 시 강화 경험치 지급 확률(Lv.0~20)" }
+    { "title": "확률형 아이템 공개 — 오버기어드 강화", "publisher": "NEXON 공식", "date": null, "url": "https://m.nexon.com/probability/8012?language=ko", "used": "강화 1회당 강화 경험치 지급 확률 — Lv.0~20 · 전 부위 공통(+1000 100% / +400 70%·+1000 30% / +150 45%·+400 35%·+1000 20%)" }
   ],
   "boardSeed": [
     {

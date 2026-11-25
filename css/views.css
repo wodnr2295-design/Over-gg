@@ -1021,6 +1021,119 @@ table.cmp .wcol { color: var(--gold); font-weight: 700; }
   gap: 8px;
 }
 .sim-summary .meta-box .mv { font-size: 13px; }
+.meta-box .mv.gold { color: var(--gold); }
+
+/* 강화 경험치 · 공식 확률표 */
+.slot-exp {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 6px;
+}
+.slot-exp .bar { height: 4px; }
+.slot-exp-t { font-family: var(--mono); font-size: 9.5px; color: var(--text-4); letter-spacing: -0.02em; }
+.slot.is-capped .slot-exp-t { color: var(--cyan); }
+
+.sc-exp {
+  display: grid;
+  gap: 6px;
+  padding: 11px 13px;
+  border-radius: 11px;
+  border: 1px solid var(--line);
+  background: rgba(8, 14, 26, 0.55);
+}
+.sc-exp-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 11.5px;
+  color: var(--text-3);
+}
+.sc-exp-head b { color: var(--text); font-size: 12.5px; }
+.sc-exp .bar { height: 7px; }
+
+.odds-box {
+  display: grid;
+  gap: 7px;
+  padding: 11px 13px;
+  border-radius: 11px;
+  border: 1px solid rgba(94, 230, 168, 0.18);
+  background: rgba(94, 230, 168, 0.045);
+}
+.odds-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 11.5px;
+  color: var(--text-2);
+  font-weight: 700;
+}
+.odds-head > span:first-child { display: inline-flex; align-items: center; gap: 6px; }
+.odds-row { display: flex; flex-wrap: wrap; gap: 6px; }
+.odds-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--line-2);
+  background: rgba(10, 17, 32, 0.7);
+  font-family: var(--mono);
+}
+.odds-chip b { font-size: 13px; color: var(--text); }
+.odds-chip small { font-size: 10.5px; color: var(--text-3); }
+.odds-chip.is-big { border-color: rgba(94, 230, 168, 0.45); background: rgba(94, 230, 168, 0.1); }
+.odds-chip.is-big b { color: var(--green); }
+.odds-chip.is-mid { border-color: rgba(243, 199, 93, 0.4); background: rgba(243, 199, 93, 0.08); }
+.odds-chip.is-mid b { color: var(--gold); }
+.odds-chip.is-low b { color: var(--red); }
+
+table.exp-table { min-width: 460px; }
+table.exp-table td,
+table.exp-table th { white-space: nowrap; }
+table.exp-table td.mono { font-family: var(--mono); color: var(--text-2); }
+table.exp-table tbody tr.is-active { background: rgba(243, 199, 93, 0.1); }
+table.exp-table tbody tr.is-active td:first-child { color: var(--gold); }
+
+.exp-levels {
+  border-radius: 11px;
+  border: 1px solid var(--line);
+  background: rgba(8, 14, 26, 0.5);
+  overflow: hidden;
+}
+.exp-levels summary {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 13px;
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--text-2);
+  font-weight: 600;
+  list-style: none;
+}
+.exp-levels summary::-webkit-details-marker { display: none; }
+.exp-levels summary svg { width: 14px; height: 14px; transition: transform 0.16s var(--ease); }
+.exp-levels[open] summary svg { transform: rotate(180deg); }
+.exp-levels .table-wrap { border: 0; border-top: 1px solid var(--line); border-radius: 0; }
+.exp-levels table.exp-table { min-width: 0; }
+
+.log-line.is-lv .lx { color: var(--cyan); font-weight: 700; }
+.log-line.is-big .lx { color: var(--green); }
+.log-line.is-mid .lx { color: var(--text-2); }
+.log-line.is-low .lx { color: var(--text-3); }
+
+/* 문단 첫머리에 붙는 작은 아이콘은 글자 흐름에 나란히 둡니다 */
+.sim-shell p > svg:first-child,
+.card-body p > svg:first-child {
+  display: inline-block;
+  vertical-align: -3px;
+  width: 12px;
+  height: 12px;
+  margin-right: 4px;
+}
 
 /* Slot contribution rows */
 .contrib-row {

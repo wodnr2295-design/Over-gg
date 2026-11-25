@@ -125,7 +125,7 @@
           .join("")}
       </div>
       <p class="tiny dim" style="margin-top:10px">
-        기사 본문을 복사하지 않고, 확인된 사실만 요약했습니다. 공개되지 않은 수치·확률은 '추정치'로 구분해 표시합니다.
+        기사 본문을 복사하지 않고, 확인된 사실만 요약했습니다. 강화 경험치 확률은 공식 공개표를 그대로 쓰고, 공개되지 않은 수치·비용은 '추정치'로 구분해 표시합니다.
       </p>`;
   }
 
@@ -214,7 +214,7 @@
             <div class="widget-body stack-sm">
               <p class="tiny" style="color:var(--text-2);line-height:1.7">
                 공식 공지·패치 노트가 공개되는 대로 반영됩니다.
-                아직 공개되지 않은 확률·비용은 체험용 추정치로 표시하고, 공식 수치가 나오면 바로 업데이트합니다.
+                강화 경험치 확률은 넥슨 공개표를 그대로 쓰고, 아직 공개되지 않은 비용·산식은 체험용 추정치로 표시합니다.
               </p>
               <div class="kv-row"><span class="k">최종 기준</span><span class="v">${U.formatDate(data.updatedAt)}</span></div>
               <div class="kv-row"><span class="k">확인한 출처</span><span class="v">${data.sources.length}건</span></div>
