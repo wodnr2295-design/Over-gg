@@ -239,7 +239,8 @@
   /* --------------------------------------------------------------- ads */
   function initAds() {
     const toggle = document.getElementById("adsToggle");
-    const on = U.storeGet("ogg.ads.on", false) || /[?&]ads=1/.test(window.location.search + window.location.hash);
+    /* 광고 영역은 기본으로 숨김 — 주소에 ?ads=1을 붙였을 때만 확인용으로 표시됩니다. */
+    const on = /[?&]ads=1/.test(window.location.search + window.location.hash);
     if (on) document.body.classList.add("ads-on");
     if (toggle) {
       toggle.checked = !!on;
@@ -273,7 +274,7 @@
         renderRoute(true);
         window.addEventListener("hashchange", onHashChange);
         if (OGG.dataSource === "fallback") {
-          U.toast("오프라인 스냅샷으로 실행 중입니다 (file://)", "info");
+          U.toast("저장된 사본으로 표시 중입니다", "info");
         }
       })
       .catch((err) => {
@@ -282,13 +283,9 @@
         app.innerHTML = `
           <div class="empty" style="padding:60px 20px">
             ${U.icon("alert")}
-            <b>게임 데이터를 불러오지 못했습니다</b>
-            <span>${U.esc(err && err.message ? err.message : "알 수 없는 오류")}</span>
-            <span class="tiny dim" style="max-width:520px">
-              data/game-data.json 파일이 같은 폴더에 있는지 확인해 주세요.
-              로컬에서 그대로 열었다면 <code>python3 -m http.server</code> 로 폴더를 열면 정상 동작합니다.
-            </span>
-            <a class="btn btn-primary btn-sm" href="data/game-data.json" target="_blank" rel="noopener">JSON 파일 열기</a>
+            <b>게임 정보를 불러오지 못했습니다</b>
+            <span>잠시 후 새로고침해 주세요. 계속 같은 화면이 나오면 문의 메일로 알려 주세요.</span>
+            <a class="btn btn-primary btn-sm" href="mailto:dkahdekd@naver.com">문의하기</a>
           </div>`;
       });
   }

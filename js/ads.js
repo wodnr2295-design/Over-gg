@@ -45,7 +45,7 @@
         <div class="ad-inner">
           <span class="ad-tag">AD SLOT</span>
           <span>[AD SLOT · Google AdSense 영역] ${text}</span>
-          <span style="font-size:9px;opacity:.7">${size} · 개발 토글로 표시</span>
+          <span style="font-size:9px;opacity:.7">${size}</span>
         </div>
       </div>`;
   }

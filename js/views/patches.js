@@ -97,7 +97,7 @@
           .join("")}
       </div>
       <p class="tiny dim" style="margin-top:10px">
-        기사 본문을 복사하지 않고, 확인된 사실만 요약했습니다. 수치·확률이 필요한 부분은 '팬 모델'로 분리해 표시합니다.
+        기사 본문을 복사하지 않고, 확인된 사실만 요약했습니다. 공개되지 않은 수치·확률은 '추정치'로 구분해 표시합니다.
       </p>`;
   }
 
@@ -170,16 +170,14 @@
         <aside class="aside">
           ${OGG.adSlot("300x250", "우측 사이드 · 300×250")}
           <section class="widget">
-            <div class="widget-head"><span class="wh-l">${U.icon("lock")} 데이터 운영</span></div>
+            <div class="widget-head"><span class="wh-l">${U.icon("refresh")} 업데이트 안내</span></div>
             <div class="widget-body stack-sm">
               <p class="tiny" style="color:var(--text-2);line-height:1.7">
-                이 사이트는 <code style="color:var(--gold)">data/game-data.json</code> 하나를 데이터 소스로 씁니다.
-                공지·패치 크롤러가 JSON만 갱신하면 모든 페이지가 즉시 최신화됩니다.
+                공식 공지·패치 노트가 공개되는 대로 반영됩니다.
+                아직 공개되지 않은 확률·비용은 체험용 추정치로 표시하고, 공식 수치가 나오면 바로 업데이트합니다.
               </p>
-              <div class="kv-row"><span class="k">스키마</span><span class="v">v${U.esc(data.schemaVersion)}</span></div>
-              <div class="kv-row"><span class="k">데이터 기준</span><span class="v">${U.formatDate(data.updatedAt, true)}</span></div>
-              <div class="kv-row"><span class="k">출처</span><span class="v">${data.sources.length}건</span></div>
-              <a class="btn btn-ghost btn-sm btn-block" href="data/game-data.json" target="_blank" rel="noopener">${U.icon("external")}JSON 열기</a>
+              <div class="kv-row"><span class="k">최종 기준</span><span class="v">${U.formatDate(data.updatedAt)}</span></div>
+              <div class="kv-row"><span class="k">확인한 출처</span><span class="v">${data.sources.length}건</span></div>
             </div>
           </section>
           <section class="widget">

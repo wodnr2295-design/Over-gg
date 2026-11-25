@@ -21,7 +21,7 @@
     if (!state) {
       state = OGG.sim.load();
       if (!state.log.length) {
-        pushLog(state, "sys", "시뮬레이터 준비 완료 · 팬 모델 v1 (공식 수치 아님)");
+        pushLog(state, "sys", "시뮬레이터 준비 완료 · 출시 초기 추정치 (공식 수치 아님)");
         OGG.sim.save(state);
       }
     }
@@ -119,7 +119,7 @@
         </div>
 
         <div class="row-wrap" style="gap:8px;justify-content:space-between">
-          <span class="tiny dim">${U.icon("info")} 실패해도 단계는 유지되고 파브라늄을 일부 돌려받습니다(팬 모델).</span>
+          <span class="tiny dim">${U.icon("info")} 실패해도 단계는 유지되고 파브라늄을 일부 돌려받습니다.</span>
           <button class="btn btn-ghost btn-sm" type="button" data-act="scavenge">${U.icon("download")}장비 분해</button>
         </div>
       </div>`;
@@ -192,8 +192,8 @@
           </div>
         </div>
         <p class="tiny dim" style="line-height:1.6">
-          ${U.icon("info")} 등급은 전 부위 동일 가정, 시그니처는 전 부위 적용 가정입니다.
-          등급 명칭은 공개된 계열별 클래스 등급 표현을 참고한 <b>예시</b>입니다.
+          ${U.icon("info")} 등급과 시그니처는 모든 부위에 똑같이 적용된 것으로 계산합니다.
+          등급 명칭은 공개된 클래스 등급 표현을 참고한 <b>예시</b>입니다.
         </p>
       </div>`;
   }
@@ -286,7 +286,7 @@
             </button>`
             )
             .join("")}
-          <p class="tiny dim" style="margin-top:2px">합계 <b class="mono" style="color:var(--gold)">${U.num(OGG.sim.coreScore(s))}</b> 코어 · 등급·시그니처 증폭이 부위별로 합산된 값입니다(팬 모델).</p>
+          <p class="tiny dim" style="margin-top:2px">합계 <b class="mono" style="color:var(--gold)">${U.num(OGG.sim.coreScore(s))}</b> 코어 · 등급·시그니처 증폭이 부위별로 합산된 값입니다.</p>
         </div>
       </div>`;
   }
@@ -336,7 +336,7 @@
           ${U.icon("alert")}
           <span>
             <b>수치 안내 · </b>${U.esc(m.disclaimer)}
-            모든 확률·비용·코어 점수는 <code style="color:var(--gold)">data/game-data.json → simModel</code>에서 조정할 수 있습니다.
+            공식 수치가 공개되면 반영해 업데이트합니다.
           </span>
         </div>
 

@@ -148,12 +148,12 @@
     };
   }
 
-  /** Confidence badge (공식 / 보도 / 팬 추정). */
+  /** Confidence badge (공식 / 보도 / 추정). */
   function confBadge(level) {
     const map = {
       official: ["conf-official", "공식 확인"],
       press: ["conf-press", "공식 발표 보도"],
-      estimate: ["conf-estimate", "팬 모델 추정"]
+      estimate: ["conf-estimate", "추정치"]
     };
     const entry = map[level] || map.estimate;
     return `<span class="conf ${entry[0]}">${entry[1]}</span>`;

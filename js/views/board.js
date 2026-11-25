@@ -98,7 +98,7 @@
           <span class="post-excerpt">${U.esc(String(p.body || "").replace(/\s+/g, " ").slice(0, 110))}</span>
           <span class="post-tags">
             ${(p.tags || []).slice(0, 4).map((t) => `<span class="post-tag" data-tag="${U.esc(t)}">#${U.esc(t)}</span>`).join("")}
-            ${p.seed ? `<span class="post-tag" style="color:var(--text-4)">예시 글</span>` : ""}
+            ${p.seed ? `<span class="post-tag" style="color:var(--text-4)">운영자</span>` : ""}
           </span>
         </span>
         <span class="post-meta">
@@ -149,7 +149,7 @@
 
         <div class="result-line">
           <span>글 <b>${list.length}</b>개</span>
-          <span class="tiny dim">${U.icon("info")} 예시 글 + 이 브라우저에 저장된 내 글</span>
+          <span class="tiny dim">${U.icon("info")} 운영자가 올린 예시 글 · 내 글은 이 브라우저에 저장</span>
         </div>
 
         <div class="post-list" id="postList">
@@ -159,8 +159,8 @@
         <div class="notice notice-info">
           ${U.icon("info")}
           <span>
-            이 게시판은 <b>프로토타입</b>입니다. 작성한 글·댓글은 서버가 아닌 <b>이 브라우저(localStorage)</b>에만 저장되며,
-            '예시 글' 표시가 있는 글은 사이트 제작이 작성한 샘플입니다.
+            게시판은 아직 서버 없이 <b>이 브라우저에만 저장되는 체험판</b>입니다. 쓴 글·댓글은 다른 사람에게 보이지 않고,
+            브라우저 데이터를 지우면 함께 사라집니다. <b>운영자</b> 표시가 있는 글은 사이트 운영자가 미리 채워 둔 예시입니다.
           </span>
         </div>
       </div>`;
@@ -173,7 +173,7 @@
         <div class="row" style="gap:10px">
           <button class="btn btn-ghost btn-sm" type="button" data-back>${U.icon("chevron-right", "flip-x")}목록으로</button>
           <span class="spacer"></span>
-          <span class="badge badge-ghost">localStorage 저장</span>
+          <span class="badge badge-ghost">이 브라우저에 저장</span>
         </div>
         <div class="card">
           <div class="card-head">
@@ -243,7 +243,7 @@
         <div class="row" style="gap:10px">
           <button class="btn btn-ghost btn-sm" type="button" data-back>${U.icon("chevron-right", "flip-x")}목록으로</button>
           <span class="spacer"></span>
-          ${post.seed ? `<span class="badge badge-ghost">예시 글</span>` : `<span class="badge badge-soft-gold">내 글</span>`}
+          ${post.seed ? `<span class="badge badge-ghost">운영자 글</span>` : `<span class="badge badge-soft-gold">내 글</span>`}
           ${!post.seed ? `<button class="btn btn-ghost btn-sm" type="button" data-delete-post="${U.esc(post.id)}">${U.icon("x")}삭제</button>` : ""}
         </div>
 
@@ -275,7 +275,7 @@
               </button>
               <button class="react-btn" type="button" data-copy-link="${U.esc(post.id)}">${U.icon("link")}링크 복사</button>
               <span class="spacer"></span>
-              <span class="tiny dim">${post.seed ? "사이트 제작이 작성한 예시 글" : "브라우저에 저장된 글"}</span>
+              <span class="tiny dim">${post.seed ? "운영자가 작성한 예시 글" : "이 브라우저에 저장된 글"}</span>
             </div>
           </div>
         </article>
@@ -349,7 +349,7 @@
               <p class="section-desc">태그로 찾고, 직접 글을 써 보세요. 모집 글에는 무기 계열과 시간대를 적으면 매칭이 빠릅니다.</p>
             </div>
             <div class="row-wrap" style="gap:8px">
-              <span class="badge badge-ghost">${U.icon("users")}예시 글 ${data.boardSeed.length}</span>
+              <span class="badge badge-ghost">${U.icon("users")}운영자 글 ${data.boardSeed.length}</span>
               <span class="badge badge-ghost">${U.icon("save")}내 글 ${db.posts.length}</span>
             </div>
           </div>

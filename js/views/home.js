@@ -49,7 +49,7 @@
           </div>
         </div>
         <div class="hud-foot">
-          <span>팬 모델 · 실제 코어 점수 아님</span>
+          <span>출시 초기 추정치 · 실제 점수와 다를 수 있음</span>
           <a class="link-arrow" href="#/simulator" style="font-size:10px">시뮬레이터 ${U.icon("arrow-up-right")}</a>
         </div>
       </div>`;
@@ -216,7 +216,7 @@
             <p class="hero-lead">
               <b>지팡이·대검·활·바이블</b> 4계열 비교부터 부위별 슬롯 강화, 코어 점수로 열리는
               <b>오버클럭</b> 단계까지. 공식 발표와 보도로 확인된 사실만 정리하고,
-              비공개 수치는 <b>팬 모델</b>임을 화면마다 표시했습니다.
+              공개되지 않은 확률·비용은 <b>추정치</b>로 표시했습니다.
             </p>
             <div class="hero-actions">
               <a class="btn btn-primary btn-lg" href="#/simulator">${U.icon("flame")}강화 시뮬레이터 열기</a>
@@ -275,21 +275,21 @@
 
           <section class="card">
             <div class="card-head">
-              <h3>${U.icon("info")} 이 사이트의 정보 등급</h3>
-              <span class="conf conf-estimate">팬 프로젝트</span>
+              <h3>${U.icon("info")} 표기된 정보, 이렇게 읽으면 됩니다</h3>
+              <span class="conf conf-estimate">비공식 팬 사이트</span>
             </div>
             <div class="card-body stack-sm">
               <div class="row-wrap" style="gap:8px">
                 ${U.confBadge("official")}<span class="tiny muted">공식 홈페이지·공식 채널에서 직접 확인한 내용</span>
               </div>
               <div class="row-wrap" style="gap:8px">
-                ${U.confBadge("press")}<span class="tiny muted">복수 매체가 동일하게 보도한 공식 발표 내용</span>
+                ${U.confBadge("press")}<span class="tiny muted">여러 매체가 같게 보도한 공식 발표 내용</span>
               </div>
               <div class="row-wrap" style="gap:8px">
-                ${U.confBadge("estimate")}<span class="tiny muted">공개되지 않은 수치를 체험용으로 모델링한 값 (실제와 다름)</span>
+                ${U.confBadge("estimate")}<span class="tiny muted">공개되지 않은 수치를 체험용으로 계산한 값 (실제와 다름)</span>
               </div>
               <div class="divider"></div>
-              <p class="tiny dim">출처 목록은 <a href="#/patches" style="color:var(--gold)">패치·업데이트</a> 페이지 하단에 있습니다. 권리자 요청 시 즉시 수정·삭제합니다.</p>
+              <p class="tiny dim">출시 초기라 공식 수치가 모두 공개되지는 않았습니다. 공개되는 대로 반영하며, 출처 목록은 <a href="#/patches" style="color:var(--gold)">패치·업데이트</a> 페이지 하단에 있습니다. 권리자 요청 시 즉시 수정·삭제합니다.</p>
             </div>
           </section>
         </div>

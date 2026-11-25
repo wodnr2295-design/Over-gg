@@ -379,7 +379,7 @@
           </div>
           <div class="result-line">
             <span>검색 결과 <b id="weaponCount">${list.length}</b> / ${data.weapons.length}계열</span>
-            <span class="tiny dim hide-sm">강화 시뮬레이터와 같은 데이터 소스를 사용합니다</span>
+            <span class="tiny dim hide-sm">전투 지표는 계열 간 상대 비교용 추정치입니다</span>
           </div>
         </div>
 
