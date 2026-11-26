@@ -34,6 +34,7 @@ python3 -m http.server 8765
 
 1. `data/game-data.json`만 수정합니다.
    - `patches` / `roadmap` / `systems` / `weapons` / `sources` / `updatedAt`
+   - `notices`(공식 공지 요약) / `knownIssues`(확인 중인 현상) / `faq`도 같은 방식으로 갱신합니다.
 2. HTTP로 서비스 중이면 저장 즉시 모든 페이지에 반영됩니다.
 3. `file://` 대응이 필요하면 폴백 스냅샷을 재생성합니다.
 

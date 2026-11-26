@@ -155,6 +155,15 @@
         icon: n.icon || "info"
       });
     });
+    ((data.knownIssues && data.knownIssues.items) || []).forEach((i) => {
+      items.push({
+        type: "현상",
+        title: i.title,
+        desc: `${i.category} · ${i.status === "done" ? "완료" : "확인 중"} · ${i.answer}`,
+        href: "#/patches",
+        icon: "alert"
+      });
+    });
     data.faq.forEach((f) => {
       items.push({ type: "FAQ", title: f.q, desc: f.a, href: "#/patches", icon: "info" });
     });

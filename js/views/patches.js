@@ -57,6 +57,61 @@
       .join("");
   }
 
+  function issueCards(data) {
+    const group = data.knownIssues || {};
+    const list = group.items || [];
+    if (!list.length) return "";
+    return list
+      .map(
+        (i) => `
+      <article class="issue-card ${i.status === "done" ? "is-done" : ""}">
+        <div class="issue-head">
+          <span class="badge badge-ghost">${U.esc(i.category)}</span>
+          <h3>${U.esc(i.title)}</h3>
+          <span class="badge ${i.status === "done" ? "badge-green" : "badge-soft-gold"}">${i.status === "done" ? "완료" : "확인 중"}</span>
+          <span class="tiny dim mono">등록 ${U.formatDate(i.registeredAt)}${i.appliedAt ? ` · 적용 ${U.formatDate(i.appliedAt)}` : ""}</span>
+        </div>
+        <p class="issue-answer">${U.esc(i.answer)}</p>
+      </article>`
+      )
+      .join("");
+  }
+
+  function issueSection(data) {
+    const group = data.knownIssues || {};
+    const list = group.items || [];
+    if (!list.length) return "";
+    const fixing = list.filter((i) => i.status !== "done").length;
+    const done = list.length - fixing;
+    return `
+      <section class="section" id="known-issues">
+        <div class="section-head">
+          <div class="titles">
+            <span class="eyebrow">Known Issues</span>
+            <h2 class="section-title">확인 중인 현상</h2>
+            <p class="section-desc">
+              넥슨 공식 '확인 중인 현상' 게시판에 등록된 항목을 그대로 정리했습니다.
+              내 계정에서 같은 증상이 보이면 대응 방법을 먼저 확인하세요.
+            </p>
+          </div>
+          <div class="row-wrap" style="gap:6px">
+            <span class="badge badge-soft-gold">확인 중 ${fixing}</span>
+            <span class="badge badge-green">완료 ${done}</span>
+          </div>
+        </div>
+
+        <div class="notice notice-warn">
+          ${U.icon("alert")}
+          <span>
+            ${U.esc(U.formatDate(group.checkedAt))} 기준 ${list.length}건을 확인했습니다. 수정 전 거래로 부족하게 정산된 금액처럼 <b>사후 보상이 예고된 항목</b>도 있으니, 증상이 사라졌는지는 공식 게시판에서 다시 확인하는 편이 좋습니다.
+            ${group.sourceUrl ? `<a href="${U.esc(group.sourceUrl)}" target="_blank" rel="noopener noreferrer" class="link-arrow" style="font-size:11px;margin-left:4px">${U.esc(group.sourceLabel || "공식 게시판")} ${U.icon("external")}</a>` : ""}
+          </span>
+        </div>
+
+        <div class="issue-list">${issueCards(data)}</div>
+      </section>`;
+  }
+
   function patchCards(data) {
     return data.patches
       .map(
@@ -181,6 +236,8 @@
             </div>
             <div class="stack">${noticeCards(data)}</div>
           </section>
+
+          ${issueSection(data)}
 
           <section class="section">
             <div class="section-head">

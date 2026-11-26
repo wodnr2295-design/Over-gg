@@ -663,6 +663,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .notice-info { border-color: rgba(86, 230, 255, 0.22); background: rgba(86, 230, 255, 0.05); color: #c9eef7; }
 .notice-info svg { color: var(--cyan); }
 .notice-info b { color: var(--cyan); }
+.notice-warn { border-color: rgba(255, 122, 122, 0.24); background: rgba(255, 122, 122, 0.055); color: #f6d6d6; }
+.notice-warn svg { color: var(--red); }
+.notice-warn b { color: var(--red); }
 
 /* ---------- 10. Ad slots ---------- */
 .ad-slot {

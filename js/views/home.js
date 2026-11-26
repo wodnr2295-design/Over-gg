@@ -210,6 +210,25 @@
       </section>`;
   }
 
+  function issueStrip(data) {
+    const group = data.knownIssues || {};
+    const list = group.items || [];
+    if (!list.length) return "";
+    const fixing = list.filter((i) => i.status !== "done");
+    const done = list.length - fixing.length;
+    const top = fixing.slice(0, 3).map((i) => U.esc(i.title));
+    return `
+      <section class="notice notice-warn">
+        ${U.icon("alert")}
+        <span style="line-height:1.8">
+          <b>확인 중인 현상 ${fixing.length}건</b>
+          ${done ? `<span class="tiny" style="color:var(--green)">· 완료 ${done}건</span>` : ""}
+          <a href="#/patches" style="color:var(--red);font-weight:700;margin-left:6px">대응 방법 보기</a><br />
+          ${top.join(" · ")}
+        </span>
+      </section>`;
+  }
+
   function render(data) {
     const launch = data.game.launchAt;
     const dPlus = U.dayDiff(launch, new Date());
@@ -250,6 +269,8 @@
       </section>
 
       ${noticeStrip(data)}
+
+      ${issueStrip(data)}
 
       ${statStrip(data)}
 
