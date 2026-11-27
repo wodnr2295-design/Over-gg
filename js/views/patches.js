@@ -103,7 +103,7 @@
         <div class="notice notice-warn">
           ${U.icon("alert")}
           <span>
-            ${U.esc(U.formatDate(group.checkedAt))} 기준 ${list.length}건을 확인했습니다. 수정 전 거래로 부족하게 정산된 금액처럼 <b>사후 보상이 예고된 항목</b>도 있으니, 증상이 사라졌는지는 공식 게시판에서 다시 확인하는 편이 좋습니다.
+            ${U.esc(U.formatDate(group.checkedAt))} 기준 ${list.length}건을 확인했습니다. 수정 전 거래로 부족하게 정산된 금액처럼 <b>사후 지급이 걸린 항목</b>도 있으니, 우편함과 공식 게시판에서 처리 결과를 다시 확인하는 편이 좋습니다.
             ${group.sourceUrl ? `<a href="${U.esc(group.sourceUrl)}" target="_blank" rel="noopener noreferrer" class="link-arrow" style="font-size:11px;margin-left:4px">${U.esc(group.sourceLabel || "공식 게시판")} ${U.icon("external")}</a>` : ""}
           </span>
         </div>
